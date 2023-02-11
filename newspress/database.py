@@ -17,3 +17,9 @@ def close_database(e=None):
     db = g.pop('db', None)
     if db is not None:
         db.close()
+
+# Initialize the database
+def init_db():
+    db = get_database()
+    with current_app.open_resource('schema.sql') as f:
+        db.executescript(f.read().decode('utf8'))
