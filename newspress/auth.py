@@ -40,7 +40,7 @@ def user_registration():
             except db.IntegrityError:
                 error = f'User with the {username} is registered!'
             else:
-                return redirect(url_for('auth.login'))
+                return redirect(url_for('auth.user_login'))
         flash(error)
     return render_template('register.html')
 
@@ -82,3 +82,12 @@ def user_logout():
     ''' User logout and clear the session '''
     session.clear()
     return redirect(url_for('index'))
+
+def login_required(view):
+    ''' Required authentication for editting, deleting, etc'''
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for('auth.user_login'))
+        return view(**kwargs)
+    return wrapped_view
