@@ -3,6 +3,8 @@ import os
 
 from flask import Flask
 
+from . import database
+
 def create_app(test_config=None):
     ''' Create and configure the application '''
     app = Flask(__name__, instance_relative_config=True)
@@ -25,4 +27,5 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return '<h3> Hello welcome to our blog and news </h3>'
+    database.init_app(app)
     return app
