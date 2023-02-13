@@ -53,7 +53,7 @@ def user_login():
         db = get_database()
         error = None
         user = db.execute(
-            'SELECT * FROM user WHERE username = ?', (username),
+            'SELECT * FROM user WHERE username = ?', (username,),
         ).fetchone()
         if user is None:
             error = ' Invalid username'
@@ -65,3 +65,15 @@ def user_login():
             return redirect(url_for('index'))
         flash(error)
     return render_template('login.html')
+
+@blueprint.before_app_request
+def load_logged_in_user():
+    ''' Load the logged in user to the session '''
+    user_id = session.get('user_id')
+    if user_id is None:
+        g.user = None
+    else:
+        g.user = get_database().execute(
+            'SELECT * FROM user WHERE id ?', (user_id, )
+        ).fetchone()
+    
