@@ -14,7 +14,7 @@ def user_registration():
     if request.method == 'POST':
         username = request.form['username']
         phone = request.form['phone']
-        fullname = request.form['full_name']
+        fullname = request.form['fullname']
         email = request.form['email']
         password = request.form['password']
         db = get_database()
@@ -31,9 +31,10 @@ def user_registration():
         elif not password:
             error = 'Password is required'
         if error is None:
+            print(username, email, fullname, phone)
             try:
                 db.execute(
-                    'INSERT INTO user (username, phone, email, fullname, password), VALUES (?, ?)',
+                    "INSERT INTO user (username, phone, email, fullname, password) VALUES (?, ?, ?, ?, ?)",
                     (username, phone, email, fullname, generate_password_hash(password)),
                 )
                 db.commit()
