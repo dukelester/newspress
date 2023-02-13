@@ -32,7 +32,7 @@ CREATE TABLE contact (
     email TEXT NOT NULL,
     phone TEXT NOT NULL,
     subject TEXT NOT NULL,
-    comment TEXT NOT NULL,
+    comment TEXT NOT NULL
 );
 
 CREATE TABLE products (
