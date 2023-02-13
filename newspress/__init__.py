@@ -4,6 +4,7 @@ import os
 from flask import Flask
 
 from . import database
+from . import auth
 
 def create_app(test_config=None):
     ''' Create and configure the application '''
@@ -28,4 +29,5 @@ def create_app(test_config=None):
     def hello():
         return '<h3> Hello welcome to our blog and news </h3>'
     database.init_app(app)
+    app.register_blueprint(auth.blueprint)
     return app
