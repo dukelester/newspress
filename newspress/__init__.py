@@ -1,7 +1,7 @@
 '''' Application factory function '''
 import os
 
-from flask import Flask, render_template
+from flask import Flask
 
 from . import database
 from . import auth, blog
@@ -29,10 +29,8 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return '<h3> Hello welcome to our blog and news </h3>'
-    @app.route('/')
-    def index():
-        return render_template('index.html')
     database.init_app(app)
     app.register_blueprint(auth.blueprint)
     app.register_blueprint(blog.blueprint)
+    app.add_url_rule('/', endpoint='index')
     return app
