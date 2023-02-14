@@ -4,7 +4,7 @@ import os
 from flask import Flask, render_template
 
 from . import database
-from . import auth
+from . import auth, blog
 
 def create_app(test_config=None):
     ''' Create and configure the application '''
@@ -34,4 +34,5 @@ def create_app(test_config=None):
         return render_template('index.html')
     database.init_app(app)
     app.register_blueprint(auth.blueprint)
+    app.register_blueprint(blog.blueprint)
     return app
