@@ -66,33 +66,28 @@
                                 </div>
                             </div>
                             <div class="col-xl-8 col-lg-7">
-                              
                                 <div class="main-menu text-right text-xl-right">
                                     <nav id="mobile-menu">
-                                         <ul>
+                                        <ul>
                                             <li class="sub">
 												<a href="{{ url_for('index')}}">Home</a>
-												
 											</li>
                                             <li><a href="life-style.html">Life Style</a></li>
-                                           
-                                            <li class="sub"> 
-                                              <a href="travel.html">Travel</a>
-                                               
+                                            <li class="sub">
+                                            <a href="travel.html">Travel</a>
                                             </li>
                                             <li><a href="contact.html">Shop</a></li>
                                             <li><a href="contact.html">Contact Us</a></li>
                                             {% if not g.user %}
                                             <li><a href="{{ url_for('auth.user_registration')}}">Register</a></li>
-                                            <li><a href="{{ url_for('auth.user_login') }}">Login</a></li> 
+                                            <li><a href="{{ url_for('auth.user_login') }}">Login</a></li>
                                             {% else %}
                                             <li><a href="{{ url_for('auth.user_logout') }}">Logout</a></li>
-                                            {% endif %}                                               
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
-                                  
-                            </div>   
+                            </div>
                          
                             <div class="col-xl-2 col-lg-3 d-none d-lg-block mt-20 mb-20">
                                  <div class="header-social text-right">
@@ -158,9 +153,9 @@
                             
                            <li><i class="icon fal fa-envelope"></i>
                                 <span>
-                                    <a href="mailto:info@example.com">info@example.com</a>
+                                    <a href="mailto:info@newspress.com">info@newspress.com</a>
                                <br>
-                               <a href="mailto:help@example.com">help@example.com</a>
+                               <a href="mailto:help@newspress.com">help@newspress.com</a>
                                </span>
                             </li>
                             

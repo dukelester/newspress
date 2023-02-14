@@ -1,0 +1,3 @@
+{% for message in get_flashed_messages() %}
+<div class="flash" style="color: darkorange; font-size: 18px; font-weight: 700; text-decoration: italics">{{ message }}</div>
+{% endfor %}
