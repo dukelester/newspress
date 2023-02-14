@@ -19,4 +19,4 @@ def index():
         '''
     ).fetchall()
     print(blog_posts)
-    return render_template('index.html')
+    return render_template('index.html', blog_posts=blog_posts)
