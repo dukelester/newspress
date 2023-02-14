@@ -1,7 +1,7 @@
 '''' Application factory function '''
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 
 from . import database
 from . import auth
@@ -9,6 +9,7 @@ from . import auth
 def create_app(test_config=None):
     ''' Create and configure the application '''
     app = Flask(__name__, instance_relative_config=True)
+    app.secret_key = 'dev'
     app.config.from_mapping(
         SECRETE_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'newspress.sqlite'),
@@ -28,6 +29,9 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return '<h3> Hello welcome to our blog and news </h3>'
+    @app.route('/')
+    def index():
+        return render_template('index.html')
     database.init_app(app)
     app.register_blueprint(auth.blueprint)
     return app
