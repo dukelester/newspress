@@ -81,8 +81,13 @@
                                                
                                             </li>
                                             <li><a href="contact.html">Shop</a></li>
-                                          
-                                            <li><a href="contact.html">Contact Us</a></li>                                               
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                            {% if not g.user %}
+                                            <li><a href="{{ url_for('auth.user_registration')}}">Register</a></li>
+                                            <li><a href="{{ url_for('auth.user_login') }}">Login</a></li> 
+                                            {% else %}
+                                            <li><a href="{{ url_for('auth.user_logout') }}">Logout</a></li>
+                                            {% endif %}                                               
                                         </ul>
                                     </nav>
                                 </div>
