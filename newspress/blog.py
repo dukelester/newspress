@@ -20,3 +20,40 @@ def index():
     ).fetchall()
     print(blog_posts)
     return render_template('index.html', blog_posts=blog_posts)
+
+@blueprint.route('/create', methods=['POST', 'GET'])
+@login_required
+def create_new_blog():
+    if request.method == 'POST':
+        title =  request.form['title']
+        body = request.form['body']
+        category = request.form['category']
+        photo = request.files['photo']
+        video_url = request.files['video_url']
+        tags = request.files['tags']
+
+        db = get_database()
+        error = None
+        if not title:
+            error = 'Title is required'
+        elif not body:
+            error = 'The body is required'
+        elif not category:
+            error = 'Category is required'
+        elif not photo:
+            error = 'Photo is required'
+        elif not video_url:
+            error = 'Video url is needed'
+        elif not tags:
+            error = 'Tags are required'
+        if error is not None:
+            flash(error)
+        else:
+            db.execute(
+                ''' INSERT INTO blog (title, body, category, photo, tags, video_url, author_id),
+                VALUES (?, ?, ?, ?, ?, ?, g.user['id'])
+                '''
+            ).commit()
+            return redirect(url_for('blog.index'))
+    return render_template('create-blog.html')
+
