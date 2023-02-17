@@ -24,6 +24,7 @@ def index():
 @blueprint.route('/create', methods=['POST', 'GET'])
 @login_required
 def create_new_blog():
+    ''' Create a new blog '''
     if request.method == 'POST':
         title =  request.form['title']
         body = request.form['body']
@@ -56,4 +57,3 @@ def create_new_blog():
             ).commit()
             return redirect(url_for('blog.index'))
     return render_template('create-blog.html')
-
