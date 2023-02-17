@@ -122,3 +122,15 @@ def update_blog_details_by_id(id: int):
             db.commit()
             return redirect(url_for('blog.index'))
     return render_template('update.html', post=post)
+
+@blueprint.route('/<int:id>/delete', methods=['POST'])
+@login_required
+def delete_blog_post(id:int):
+    ''' delete a user posted blog post'''
+    get_post_by_id(id)
+    db = get_database()
+    db.execute(
+        ''' DELETE FROM blog WHERE id = ?''', (id, )
+    )
+    db.commit()
+    return redirect(url_for('blog.index'))
