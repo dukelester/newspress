@@ -48,13 +48,20 @@
                                             <a href="travel.html">Travel</a>
                                             </li>
                                             <li><a href="contact.html">Shop</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
+                                            
                                             {% if not g.user %}
                                             <li><a href="{{ url_for('auth.user_registration')}}">Register</a></li>
                                             <li><a href="{{ url_for('auth.user_login') }}">Login</a></li>
                                             {% else %}
                                             <li><a href="{{ url_for('auth.user_logout') }}">Logout</a></li>
                                             {% endif %}
+                                            <li>
+                                                <div class="col-lg-4">
+                                                    <div class="">
+                                                        <button class="btn" data-animation="fadeInRight" data-delay=".8s" type="submit">Create new</button>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
