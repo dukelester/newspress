@@ -1,24 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-<section id="services" class="services-area pt-90 pb-60 fix">
+<section id="services" class="services-area fix">
     <div class="container">
         <h3 style="padding-left: 10%; padding-bottom: 30px"> Create new blog post now </h3>
         <div class="row">
             
 <div class="col-lg-8 col-md-12">
     {% include 'messages.html' %}
-    <form method="post" class="contact-form ">
+    <form method="post" class="contact-form " enctype="multipart/form-data">
        <div class="row">
         <div class="col-lg-12">
             <div class="contact-field p-relative c-name mb-20">
                 <input type="text" id="firstn" name="title" placeholder="Title" required>
             </div>
         </div>
-       <div class="col-lg-12">
-           <div class="contact-field p-relative c-name mb-20">
-               <input type="text" id="firstn" name="username" placeholder="username" required>
-           </div>
-       </div>
        
        <div class="col-lg-12">
            <div class="contact-field p-relative c-subject mb-20">
@@ -26,9 +21,20 @@
            </div>
        </div>		
        <div class="col-lg-12">
-        <div class="contact-field p-relative c-message mb-45">                                  
+        <div class="contact-field p-relative c-message mb-45">
             <textarea name="body" id="message" cols="30" rows="10" placeholder="Blog description"></textarea>
         </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="contact-field p-relative c-subject mb-20">
+                <label> Photo </label>
+                <input type="file" id="email" name="photo" placeholder="blog photo" required>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="contact-field p-relative c-name mb-20">
+                <input type="url" id="firstn" name="video_url" placeholder="Video url" required>
+            </div>
         </div>
         <div class="col-lg-12">
             <div class="contact-field p-relative c-email mb-20">

@@ -30,8 +30,9 @@ def create_new_blog():
         body = request.form['body']
         category = request.form['category']
         photo = request.files['photo']
-        video_url = request.files['video_url']
-        tags = request.files['tags']
+        video_url = request.form['video_url']
+        tags = request.form['tags']
+        print(photo)
 
         db = get_database()
         error = None
@@ -51,9 +52,11 @@ def create_new_blog():
             flash(error)
         else:
             db.execute(
-                ''' INSERT INTO blog (title, body, category, photo, tags, video_url, author_id),
-                VALUES (?, ?, ?, ?, ?, ?, g.user['id'])
-                '''
-            ).commit()
+                ''' INSERT INTO blog (title, body, category, tags, video_url, author_id)
+                VALUES (?, ?, ?, ?, ?, ?)
+                ''',
+                (title, body, category, video_url, tags, g.user['id'])
+            )
+            db.commit()
             return redirect(url_for('blog.index'))
     return render_template('create-blog.html')
