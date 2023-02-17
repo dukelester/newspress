@@ -61,3 +61,19 @@ def create_new_blog():
             db.commit()
             return redirect(url_for('blog.index'))
     return render_template('create-blog.html')
+
+def get_post_by_id(id, check_author=True):
+    ''' Given a post Id get all the details for a post'''
+    db = get_database()
+    post = db.execute(
+        ''' SELECT p.id, title, body, category, photo, tags, created_at, author_id, username
+        FROM blog p JOIN user u ON p.author_id = u.id
+        WHERE p.id = ?
+        ''',
+        (id, )
+    ).fetchone()
+    if post is None:
+        abort(404, f'The post with id {id} does not exist!')
+    if check_author and post['author_id'] != g.user['id']:
+        abort(403)
+    return post
