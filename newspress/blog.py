@@ -77,3 +77,9 @@ def get_post_by_id(id, check_author=True):
     if check_author and post['author_id'] != g.user['id']:
         abort(403)
     return post
+
+@blueprint.route('/<int:id>')
+def get_blog_details_by_id(id: int):
+    ''' Get the blog details based on the blog id'''
+    post = get_post_by_id(id)
+    return render_template('blog-details.html', post=post)
