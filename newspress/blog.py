@@ -53,7 +53,7 @@ def create_new_blog():
             flash(error)
         else:
             db.execute(
-                ''' INSERT INTO blog (title, body, category,photo, tags, video_url, author_id)
+                ''' INSERT INTO blog (title, body, category,photo, video_url, tags , author_id)
                 VALUES (?, ?, ?, ?, ?, ?, ?)
                 ''',
                 (title, body, category, photo, video_url, tags, g.user['id'])
