@@ -105,8 +105,6 @@ def update_blog_details_by_id(id: int):
             error = 'The body is required'
         elif not category:
             error = 'Category is required'
-        elif not photo:
-            error = 'Photo is required'
         elif not video_url:
             error = 'Video url is needed'
         elif not tags:
