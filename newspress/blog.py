@@ -83,3 +83,44 @@ def get_blog_details_by_id(id: int):
     ''' Get the blog details based on the blog id'''
     post = get_post_by_id(id)
     return render_template('blog-details.html', post=post)
+
+@blueprint.route('/<int:id>/update', methods=['POST', 'GET'])
+@login_required
+def update_blog_details_by_id(id: int):
+    ''' Update a single blog based on its id. '''
+    post = get_post_by_id(id)
+    if request.method == 'POST':
+        title =  request.form['title']
+        body = request.form['body']
+        category = request.form['category']
+        photo = secure_filename(request.files['photo'].filename)
+        video_url = request.form['video_url']
+        tags = request.form['tags']
+
+        db = get_database()
+        error = None
+        if not title:
+            error = 'Title is required'
+        elif not body:
+            error = 'The body is required'
+        elif not category:
+            error = 'Category is required'
+        elif not photo:
+            error = 'Photo is required'
+        elif not video_url:
+            error = 'Video url is needed'
+        elif not tags:
+            error = 'Tags are required'
+        if error is not None:
+            flash(error)
+        else:
+            db = get_database()
+            db.execute(
+                ''' UPDATE blog SET title = ?, body = ?, category = ?, photo = ?, video_url = ?, tags = ? 
+                WHERE id = ?
+                ''',
+                (title, body, category, photo, video_url, tags, id)
+            )
+            db.commit()
+            return redirect(url_for('blog.index'))
+    return render_template('update.html', post=post)
