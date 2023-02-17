@@ -144,67 +144,27 @@
                          
                     </div>
                     <div class="row">
+                        {% for post in blog_posts[:3] %}
                          <div class="col-lg-4 col-md-12">
                              
                           <div class="fp-box wow fadeInUp animated hover-zoomin"  data-delay=".4s">
                               <div class="img ">
-                                  <div class="cat">LIFE STYLE</div>
+                                  <div class="cat">{{ post.category.upper() }}</div>
                                    <img src="img/blog/lifestyle/lf-1.jpg" alt="icon01">
                                 </div>
                                <div class="text">
-                                    <h5><a href="blog-details.html">Guide to Picking the Best Travel Card</a></h5>   
+                                    <h5><a href="{{ url_for('blog.get_blog_details_by_id', id=post.id)}}">{{ post.title.capitalize() }}</a></h5>   
                                    <div class="post-tags mt-20">
                                             <ul>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
+                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Admin</a></li>
+                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> {{ post.created_at }}</a></li>
                                                
                                             </ul>
                                         </div>
                                 </div>
                             </div>   
-                             
-                         
                         </div>
-                         <div class="col-lg-4 col-md-12">
-                             
-                          <div class="fp-box wow fadeInUp animated hover-zoomin"  data-delay=".4s">
-                              <div class="img ">
-                                  <div class="cat">TRAVEL</div>
-                                   <img src="img/blog/travel/tr-7.jpg" alt="icon01">
-                                </div>
-                               <div class="text">
-                                    <h5><a href="blog-details.html">If you want to find your life, you go to nature.</a></h5>   
-                                   <div class="post-tags mt-20">
-                                            <ul>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                               
-                                            </ul>
-                                        </div>
-                                </div>
-                            </div>   
-                             
-                         
-                        </div>
-                         <div class="col-lg-4 col-md-12">
-                             
-                          <div class="fp-box wow fadeInUp animated hover-zoomin"  data-delay=".4s">
-                              <div class="img ">
-                                  <div class="cat">MUSIC</div>
-                                   <img src="img/blog/music/mc-1.jpg" alt="icon01">
-                                </div>
-                               <div class="text">
-                                    <h5><a href="blog-details.html">Try to be happy all the time no matter.</a></h5>   
-                                   <div class="post-tags mt-20">
-                                            <ul>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                               
-                                            </ul>
-                                        </div>
-                                </div>
-                            </div>   
-                             
+                         {% endfor %}
                          
                         </div>
                         

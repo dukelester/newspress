@@ -114,7 +114,8 @@ def update_blog_details_by_id(id: int):
         else:
             db = get_database()
             db.execute(
-                ''' UPDATE blog SET title = ?, body = ?, category = ?, photo = ?, video_url = ?, tags = ? 
+                ''' UPDATE blog SET title = ?, body = ?, category = ?,
+                photo = ?, video_url = ?, tags = ?
                 WHERE id = ?
                 ''',
                 (title, body, category, photo, video_url, tags, id)
