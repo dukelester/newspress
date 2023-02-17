@@ -1,5 +1,7 @@
+import os
+
 from flask import (
-    Blueprint, redirect, request, url_for, render_template, flash, g
+    Blueprint, redirect, request, url_for, render_template, flash, g, current_app
 )
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import abort
@@ -30,7 +32,9 @@ def create_new_blog():
         title =  request.form['title']
         body = request.form['body']
         category = request.form['category']
-        photo = secure_filename(request.files['photo'].filename)
+        photo = request.files['photo']
+        photo.save(os.path.join(current_app.config['UPLOAD_FOLDER'])
+                   )
         video_url = request.form['video_url']
         tags = request.form['tags']
         print(photo)

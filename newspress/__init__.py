@@ -6,6 +6,7 @@ from flask import Flask
 from . import database
 from . import auth, blog
 
+UPLOAD_FOLDER = '/home/dukelester/Documents/Flask/newspress/static/uploads'
 def create_app(test_config=None):
     ''' Create and configure the application '''
     app = Flask(__name__, instance_relative_config=True)
@@ -14,6 +15,7 @@ def create_app(test_config=None):
         SECRETE_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'newspress.sqlite'),
     )
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
     if test_config is None:
         # load the instance config , if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
