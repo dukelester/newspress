@@ -427,121 +427,27 @@
                          
                     </div>
                         <div class="row">
-                            
+                            {% for post in blog_posts %}
                          <div class="col-lg-6 col-md-12">
                              <div class="tps-box wow fadeInUp animated hover-zoomin mb-30"  data-delay=".4s">
                               <div class="img ">
-                                  <div class="cat">LIFE STYLE</div>
+                                  <div class="cat">{{ post.category.upper() }}</div>
                                    <img src="img/blog/lifestyle/lf-7.jpg" alt="icon01">
                                 </div>
                                <div class="text">
-                                    <h5><a href="blog-details.html">Los angeles compound he is trying to sell</a></h5>   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vel hendrerit.</p>
+                                    <h5><a href="blog-details.html">{{ post.title.capitalize() }}</a></h5>   
+                                   <p>{{ post.body[:100] }}</p>
                                    <div class="post-tags mt-20">
                                             <ul>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
+                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Admin</a></li>
+                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> {{ post.created_at }}</a></li>
                                             </ul>
                                         </div>
                                 </div>
                             </div>   
-                             
-                         
                         </div>
-                         <div class="col-lg-6 col-md-12">
-                          <div class="tps-box wow fadeInUp animated hover-zoomin mb-30"  data-delay=".4s">
-                              <div class="img ">
-                                  <div class="cat">FOOD</div>
-                                   <img src="img/blog/food/fd-7.jpg" alt="icon01">
-                                </div>
-                               <div class="text">
-                                    <h5><a href="blog-details.html">How to Make Choreg Armenia's Eggy</a></h5>   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vel hendrerit.</p>
-                                   <div class="post-tags mt-20">
-                                            <ul>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                            </ul>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="col-lg-6 col-md-12">
-                             <div class="tps-box wow fadeInUp animated hover-zoomin mb-30"  data-delay=".4s">
-                              <div class="img ">
-                                  <div class="cat">MUSIC</div>
-                                   <img src="img/blog/music/mc-10.jpg" alt="icon01">
-                                </div>
-                               <div class="text">
-                                    <h5><a href="blog-details.html">Essential Qualities of Highly Successful Music.</a></h5>   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vel hendrerit.</p>
-                                   <div class="post-tags mt-20">
-                                            <ul>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                            </ul>
-                                        </div>
-                                </div>
-                            </div>   
-                             
-                         
-                        </div>
-                         <div class="col-lg-6 col-md-12">
-                          <div class="tps-box wow fadeInUp animated hover-zoomin mb-30"  data-delay=".4s">
-                              <div class="img ">
-                                  <div class="cat">EDUCATION</div>
-                                   <img src="img/blog/eductions/ed-2.jpg" alt="icon01">
-                                </div>
-                               <div class="text">
-                                    <h5><a href="blog-details.html">3 Technology Basics You Reviewing Constantly.</a></h5>   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vel hendrerit.</p>
-                                   <div class="post-tags mt-20">
-                                            <ul>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                            </ul>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="col-lg-6 col-md-12">
-                             <div class="tps-box wow fadeInUp animated hover-zoomin mb-30"  data-delay=".4s">
-                              <div class="img ">
-                                  <div class="cat">FITNESS</div>
-                                   <img src="img/blog/fitness/ft-10.jpg" alt="icon01">
-                                </div>
-                               <div class="text">
-                                    <h5><a href="blog-details.html">The loss is not all that surprising</a></h5>   
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vel hendrerit.</p>
-                                   <div class="post-tags mt-20">
-                                            <ul>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                            </ul>
-                                        </div>
-                                </div>
-                            </div>   
-                             
-                         
-                        </div>
-                         <div class="col-lg-6 col-md-12">
-                          <div class="tps-box wow fadeInUp animated hover-zoomin mb-30"  data-delay=".4s">
-                              <div class="img ">
-                                  <div class="cat">GAMING</div>
-                                   <img src="img/blog/gaming/gm-01.jpg" alt="icon01">
-                                </div>
-                               <div class="text">
-                                    <h5><a href="blog-details.html">It’s Great the Government is Tightening Gambling Rules</a></h5>  
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vel hendrerit.</p>
-                                   <div class="post-tags mt-20">
-                                            <ul>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-user-crown"></i></span> Johen Doe</a></li>
-                                                 <li><a href="#"><span class="icon"><i class="fal fa-clock"></i></span> 12 March, 2021</a></li>
-                                            </ul>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+                       
                             
                         
                     </div>

@@ -32,9 +32,7 @@ def create_new_blog():
         title =  request.form['title']
         body = request.form['body']
         category = request.form['category']
-        photo = request.files['photo']
-        photo.save(os.path.join(current_app.config['UPLOAD_FOLDER'])
-                   )
+        photo = secure_filename(request.files['photo'].filename)
         video_url = request.form['video_url']
         tags = request.form['tags']
         print(photo)
