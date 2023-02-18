@@ -24,6 +24,16 @@ def index():
 
     return render_template('index.html', blog_posts=blog_posts)
 
+@blueprint.route('/travel')
+def traveling_category():
+    ''' Travelling category posts '''
+    db = get_database()
+    posts = db.execute(
+        ''' SELECT id, title, body, category, created_at, photo, video_url, tags
+        FROM blog WHERE category = "Travel" '''
+    ).fetchall()
+    return render_template('travel.html', posts=posts)
+
 @blueprint.route('/create', methods=['POST', 'GET'])
 @login_required
 def create_new_blog():
