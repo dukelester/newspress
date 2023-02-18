@@ -21,7 +21,7 @@ def index():
             ORDER BY created_at DESC
         '''
     ).fetchall()
-    print(blog_posts)
+
     return render_template('index.html', blog_posts=blog_posts)
 
 @blueprint.route('/create', methods=['POST', 'GET'])
