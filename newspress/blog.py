@@ -30,9 +30,18 @@ def traveling_category():
     db = get_database()
     posts = db.execute(
         ''' SELECT id, title, body, category, created_at, photo, video_url, tags
-        FROM blog WHERE category = "Travel" '''
+        FROM blog WHERE category = "Travel"  ORDER BY created_at DESC'''
     ).fetchall()
     return render_template('travel.html', posts=posts)
+
+@blueprint.route('/life-style')
+def life_style_category():
+    ''' A category for the lifestyle '''
+    db = get_database()
+    posts = db.execute(
+        ''' SELECT * FROM blog WHERE category = "Life Style" ORDER BY created_at DESC '''
+    ).fetchall()
+    return render_template('life-style.html', posts=posts)
 
 @blueprint.route('/create', methods=['POST', 'GET'])
 @login_required
