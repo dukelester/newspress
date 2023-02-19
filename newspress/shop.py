@@ -84,7 +84,44 @@ def get_product_details_by_id(id):
 
 @blueprint.route('<int:id>/update', methods=['POST', 'GET'])
 def update_product_details_by_id(id):
-    pass
+    ''' Update a product based on the id'''
+    product = get_product_by_id(id)
+    if request.method == 'POST':
+        title = request.form['title']
+        price = request.form['price']
+        category = request.form['category']
+        detailed_description = request.form['description']
+        additional_info = request.form['additional_info']
+        photo = secure_filename(request.files['photo'].filename)
+
+        error = None
+        db = get_database()
+
+        if not title:
+            error = 'Title is required'
+        elif not price or int(price) < 0:
+            error = 'Invalid price'
+        elif not category:
+            error = 'Category is required'
+        elif not detailed_description:
+            error = 'Product description is required'
+        elif not additional_info:
+            error = 'Product additional information is required'
+        elif not photo:
+            error = 'Please include the product photo'
+        if error is not None:
+            flash(error)
+        else:
+            db.execute(
+                ''' UPDATE products SET title = ?, price = ?, category = ?, detailed_description = ?
+                additional_info = ?, photo = ?
+                WHERE id = ?
+                ''',
+                (title, price, category, detailed_description, additional_info, photo, id)
+            )
+            db.commit()
+            return redirect(url_for('shop.get_all_products'))
+    return render_template('update-product.html', product=product)
 
 @blueprint.route('/<int:id>/delete', methods=['POST', 'GET'])
 def delete_product(id):
