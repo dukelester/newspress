@@ -19,33 +19,8 @@
 		</div>
 		<!-- /search-popup -->
             <!-- breadcrumb-area -->
-            <section class="breadcrumb-area d-flex align-items-center" style="background-image:url(img/testimonial/test-bg.png)">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-12 col-lg-12">
-                            <div class="breadcrumb-wrap text-left">
-                                <div class="breadcrumb-title">
-                                    <h2>Contact Us</h2>    
-                                    <div class="breadcrumb-wrap">
-                              
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
-            <!-- breadcrumb-area-end -->
-            
              <!-- services-area -->          
-            <section id="services" class="services-area pt-90 pb-60 fix">
+            <section id="services" class="services-area fix">
                 <div class="container">
        
                     <div class="row">
@@ -57,7 +32,7 @@
                                 </div>
                                <div class="services-content2">
                                     <h5>Email Address</h5>   
-                                    <p>info@webexample.com <br/> jobs@webtrueexample.com</p>
+                                    <p> info@newspress.co.ke <br/> news@newspress.co.ke</p>
                                 </div>
                             </div>   
                               <div class="services-box mt-0 mb-30 text-center">
@@ -66,7 +41,7 @@
                                 </div>
                                <div class="services-content2">
                                     <h5>Phone Number</h5>   
-                                     <p>090-098-765-09 <br/>093-456-432-654-7</p>
+                                     <p> +254-712-345-678 <br/>+254-711-987-654</p>
                                     
                                 </div>
                             </div>   
@@ -76,8 +51,7 @@
                                 </div>
                                <div class="services-content2">
                                     <h5>Office Address</h5>   
-                                    <p>12/A, Miranda Halim Tower,<br>New York, USA</p>
-                                   
+                                    <p> Acacia Adventures ,1234 Acacia House, Moi Avenue, <br> Nairobi, Kenya</p>
                                 </div>
                             </div>  
                              
@@ -85,21 +59,22 @@
                         </div>
                         <div class="col-lg-8 col-md-12">
                              
-                         <form action="mail.php" method="post" class="contact-form ">
+                         <form method="post" class="contact-form ">
+                            {% include 'messages.html' %}
 							<div class="row">
                             <div class="col-lg-12">
                                 <div class="contact-field p-relative c-name mb-20">                                    
-                                    <input type="text" id="firstn" name="firstn" placeholder="First Name" required>
+                                    <input type="text" id="firstn" name="firstname" placeholder="First Name" required>
                                 </div>                               
                             </div>
 							<div class="col-lg-12">                               
                                 <div class="contact-field p-relative c-email mb-20">                                    
-                                    <input type="text" id="lastn" name="lastn" placeholder="Last Name" required>
+                                    <input type="text" id="lastn" name="lastname" placeholder="Last Name" required>
                                 </div>                                
                             </div>
 							<div class="col-lg-12">                               
                                 <div class="contact-field p-relative c-subject mb-20">                                   
-                                    <input type="text" id="email" name="email" placeholder="Eamil" required>
+                                    <input type="email" id="email" name="email" placeholder="Eamil" required>
                                 </div>
                             </div>		
                             <div class="col-lg-12">                               
@@ -109,7 +84,7 @@
                             </div>	
                             <div class="col-lg-12">                               
                                 <div class="contact-field p-relative c-option mb-20">                                   
-                                    <select name="services" id="sr">
+                                    <select name="subject" id="sr">
                                       <option value="sports-massage">Sports Massage</option>
                                       <option value="hot-stone-message">Hot Stone Message</option>
                                       <option value="facil-therophy">Facil & Therophy</option>
@@ -118,10 +93,10 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="contact-field p-relative c-message mb-45">                                  
-                                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Write comments"></textarea>
+                                    <textarea name="comment" id="message" cols="30" rows="10" placeholder="Write comments"></textarea>
                                 </div>
                                 <div class="slider-btn">                                          
-                                            <button class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Submint Now</button>				
+                                            <button class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s" type="submit">Submint Now</button>				
                                         </div>                             
                             </div>
                             </div>
