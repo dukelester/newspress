@@ -71,7 +71,13 @@ def get_product_by_id(id, check_seller=True):
         (id, )
     ).fetchone()
     if product is None:
-        abort(4040, f'Sorry the product with the id {id} can not be found...!')
+        abort(404, f'Sorry the product with the id {id} can not be found...!')
     if check_seller and product['seller_id'] != g.user['id']:
         abort(403)
     return product
+
+@blueprint.route('/<int:id>')
+def get_product_details_by_id(id):
+    ''' Get a product details based on the product Id'''
+    product = get_product_by_id(id)
+    return render_template('shop-details.html', product=product)
