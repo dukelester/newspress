@@ -29,7 +29,7 @@ def create_app(test_config=None):
         pass
     # say hello
     @app.route('/hello')
-    def contact():
+    def hello():
         return '<h3> Hello welcome to our blog and news </h3>'
     database.init_app(app)
     app.register_blueprint(auth.blueprint)
