@@ -127,7 +127,7 @@ def delete_product(id):
     get_product_by_id(id)
     db = get_database()
     db.execute(
-        ''' DELETE * FROM products WHERE id = ? ''',
+        ''' DELETE FROM products WHERE id = ? ''',
         (id, )
     )
     db.commit()
