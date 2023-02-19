@@ -81,3 +81,11 @@ def get_product_details_by_id(id):
     ''' Get a product details based on the product Id'''
     product = get_product_by_id(id)
     return render_template('shop-details.html', product=product)
+
+@blueprint.route('<int:id>/update', methods=['POST', 'GET'])
+def update_product_details_by_id(id):
+    pass
+
+@blueprint.route('/<int:id>/delete', methods=['POST', 'GET'])
+def delete_product(id):
+    pass
