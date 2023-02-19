@@ -4,7 +4,7 @@ import os
 from flask import Flask
 
 from . import database
-from . import auth, blog, otherpages
+from . import auth, blog, otherpages, shop
 
 UPLOAD_FOLDER = '/home/dukelester/Documents/Flask/newspress/static/uploads'
 def create_app(test_config=None):
@@ -35,5 +35,6 @@ def create_app(test_config=None):
     app.register_blueprint(auth.blueprint)
     app.register_blueprint(blog.blueprint)
     app.register_blueprint(otherpages.blueprint)
+    app.register_blueprint(shop.blueprint)
     app.add_url_rule('/', endpoint='index')
     return app

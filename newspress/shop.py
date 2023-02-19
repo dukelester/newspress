@@ -6,7 +6,7 @@ from newspress.database import get_database
 from newspress.auth import login_required
 
 
-blueprint = Blueprint('shop', __name__)
+blueprint = Blueprint('shop', __name__, url_prefix='/shop')
 
 @blueprint.route('/')
 def get_all_products():
