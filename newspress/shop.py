@@ -21,4 +21,6 @@ def get_all_products():
 @login_required
 def create_new_product():
     ''' Create a new product and save it to the database '''
-    
+    if request.method == 'POST':
+        pass
+    return render_template('new-product.html')
