@@ -11,4 +11,9 @@ blueprint = Blueprint('shop', __name__, url_prefix='/shop')
 @blueprint.route('/')
 def get_all_products():
     ''' Display all the products in the shop '''
-    return render_template('shop.html')
+    db = get_database()
+    products = db.execute(
+        ''' SELECT * FROM products ORDER BY created_at '''
+    ).fetchall()
+    print(products, 'products')
+    return render_template('shop.html', products=products)
