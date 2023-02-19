@@ -15,5 +15,10 @@ def get_all_products():
     products = db.execute(
         ''' SELECT * FROM products ORDER BY created_at '''
     ).fetchall()
-    print(products, 'products')
     return render_template('shop.html', products=products)
+
+@blueprint.route('/create', methods=['GET', 'POST'])
+@login_required
+def create_new_product():
+    ''' Create a new product and save it to the database '''
+    

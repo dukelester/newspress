@@ -2,7 +2,13 @@
 {% block content %}
         <!-- main-area -->
         <main>
-            
+            <div class="col-lg-4">
+                <div class="">
+                    <a href="{{ url_for('shop.create_new_product')}}">
+                    <button class="btn" data-animation="fadeInRight" data-delay=".8s" type="submit">Create new product</button>
+                    </a>
+                </div>
+            </div>
 			<!-- shop-area -->
             <section class="shop-area  p-relative " data-animation="fadeInUp animated" data-delay=".2s">
                 <div class="container">
