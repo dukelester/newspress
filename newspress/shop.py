@@ -72,8 +72,8 @@ def get_product_by_id(id, check_seller=True):
     ).fetchone()
     if product is None:
         abort(404, f'Sorry the product with the id {id} can not be found...!')
-    if check_seller and g.user is not None and product['seller_id'] != g.user['id']:
-        abort(403)
+    # if check_seller and g.user is not None and product['seller_id'] != g.user['id']:
+    #     abort(403)
     return product
 
 @blueprint.route('/<int:id>')
@@ -86,6 +86,10 @@ def get_product_details_by_id(id):
 def update_product_details_by_id(id):
     ''' Update a product based on the id'''
     product = get_product_by_id(id)
+    if product['seller_id'] != g.user['id']:
+        error = 'You are not allowed to edit this product'
+        flash(error)
+        return redirect(url_for('shop.get_product_details_by_id', id=product['id']))
     if request.method == 'POST':
         title = request.form['title']
         price = request.form['price']
