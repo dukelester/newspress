@@ -94,8 +94,8 @@ def get_post_by_id(id, check_author=True):
     ).fetchone()
     if post is None:
         abort(404, f'The post with id {id} does not exist!')
-    if check_author and  g.user is not None and post['author_id'] != g.user['id']:
-        abort(403)
+    # if check_author and  g.user is not None and post['author_id'] != g.user['id']:
+    #     abort(403)
     return post
 
 @blueprint.route('/<int:id>')
@@ -109,6 +109,10 @@ def get_blog_details_by_id(id: int):
 def update_blog_details_by_id(id: int):
     ''' Update a single blog based on its id. '''
     post = get_post_by_id(id)
+    if post['author_id'] != g.user['id']:
+        error = 'You are not allowed to edit this blog post'
+        flash(error)
+        return redirect(url_for('blog.get_blog_details_by_id', id=post['id']))
     if request.method == 'POST':
         title =  request.form['title']
         body = request.form['body']
