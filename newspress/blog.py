@@ -1,4 +1,3 @@
-import os
 
 from flask import (
     Blueprint, redirect, request, url_for, render_template, flash, g, current_app
