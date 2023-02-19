@@ -107,14 +107,12 @@ def update_product_details_by_id(id):
             error = 'Product description is required'
         elif not additional_info:
             error = 'Product additional information is required'
-        elif not photo:
-            error = 'Please include the product photo'
         if error is not None:
             flash(error)
         else:
             db.execute(
-                ''' UPDATE products SET title = ?, price = ?, category = ?, detailed_description = ?
-                additional_info = ?, photo = ?
+                ''' UPDATE products SET title = ?, price = ?, category = ?,
+                detailed_description = ?, additional_info = ?, photo = ?
                 WHERE id = ?
                 ''',
                 (title, price, category, detailed_description, additional_info, photo, id)

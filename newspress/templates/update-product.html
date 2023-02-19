@@ -11,34 +11,34 @@
        <div class="row">
         <div class="col-lg-12">
             <div class="contact-field p-relative c-name mb-20">
-                <input type="text" id="firstn" name="title" placeholder="Title" required value="{{ request.form['title']}}">
+                <input type="text" id="firstn" name="title" placeholder="Title" value="{{ request.form['title'] or product.title }}">
             </div>
         </div>
         <div class="col-lg-12">
             <div class="contact-field p-relative c-name mb-20">
-                <input type="float" id="firstn" name="price" placeholder="Price" required value="{{ request.form['price']}}">
+                <input type="float" id="firstn" name="price" placeholder="Price" value="{{ request.form['price'] or product.price }}">
             </div>
         </div>
        <div class="col-lg-12">
            <div class="contact-field p-relative c-subject mb-20">
-               <input type="text" id="email" name="category" placeholder="category" required value="{{ request.form['category']}}">
+               <input type="text" id="email" name="category" placeholder="category" value="{{ request.form['category'] or product.category }}">
            </div>
        </div>		
        <div class="col-lg-12">
         <div class="contact-field p-relative c-message mb-45">
-            <textarea name="description" id="message" cols="30" rows="10" placeholder="Product description" >{{ request.form['description']}}</textarea>
+            <textarea name="description" id="message" cols="30" rows="10" placeholder="Product description" >{{ request.form['description'] or product.detailed_description}}</textarea>
         </div>
         </div>
         <div class="col-lg-12">
             <div class="contact-field p-relative c-message mb-45">
-                <textarea name="additional_info" id="message" cols="30" rows="4" placeholder="Product Additional information">{{ request.form['additional_info']}}</textarea>
+                <textarea name="additional_info" id="message" cols="30" rows="4" placeholder="Product Additional information">{{ request.form['additional_info'] or product.additional_info }}</textarea>
             </div>
             </div>
         
         <div class="col-lg-12">
             <div class="contact-field p-relative c-subject mb-20">
                 <label> Photo </label>
-                <input type="file" id="email" name="photo" placeholder="blog photo" required value="{{ request.form['photo']}}">
+                <input type="file" id="email" name="photo" placeholder="blog photo"   value="{{ request.form['photo']}}">
             </div>
         </div>
        <div class="col-lg-12">
