@@ -16,29 +16,29 @@
         </div>
         <div class="col-lg-12">
             <div class="contact-field p-relative c-name mb-20">
-                <input type="float" id="firstn" name="price" placeholder="Price" required>
+                <input type="float" id="firstn" name="price" placeholder="Price" required value="{{ request.form['price']}}">
             </div>
         </div>
        <div class="col-lg-12">
            <div class="contact-field p-relative c-subject mb-20">
-               <input type="text" id="email" name="category" placeholder="category" required>
+               <input type="text" id="email" name="category" placeholder="category" required value="{{ request.form['category']}}">
            </div>
        </div>		
        <div class="col-lg-12">
         <div class="contact-field p-relative c-message mb-45">
-            <textarea name="description" id="message" cols="30" rows="10" placeholder="Product description"></textarea>
+            <textarea name="description" id="message" cols="30" rows="10" placeholder="Product description" >{{ request.form['description']}}</textarea>
         </div>
         </div>
         <div class="col-lg-12">
             <div class="contact-field p-relative c-message mb-45">
-                <textarea name="additional_info" id="message" cols="30" rows="4" placeholder="Product Additional information"></textarea>
+                <textarea name="additional_info" id="message" cols="30" rows="4" placeholder="Product Additional information">{{ request.form['additional_info']}}</textarea>
             </div>
             </div>
         
         <div class="col-lg-12">
             <div class="contact-field p-relative c-subject mb-20">
                 <label> Photo </label>
-                <input type="file" id="email" name="photo" placeholder="blog photo" required>
+                <input type="file" id="email" name="photo" placeholder="blog photo" required value="{{ request.form['photo']}}">
             </div>
         </div>
        <div class="col-lg-12">

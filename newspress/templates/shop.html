@@ -14,7 +14,7 @@
                 <div class="container">
 					<div class="row">
 						<div class="col-lg-6 col-sm-6">
-						<h6 class="mt-20 mb-30">Showing 1–9 of 10 results</h6>
+						<h6 class="mt-20 mb-30">Showing 1–9 of {{ total }} results</h6>
 						</div>
 						<div class="col-lg-6 col-sm-6 text-right">
 							<select name="orderby" class="orderby" aria-label="Shop order">
@@ -28,186 +28,28 @@
 						</div>
 					</div>
                     <div class="row align-items-center">
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="product mb-40">
-                                            <div class="product__img">
-                                                <a href="shop-details.html"><img src="img/shop/img4.jpg" alt=""></a>
-                                                <div class="product-action text-center">
-                                                   
-                                                    <a href="shop-details.html">Add Cart</a>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="product__content text-center pt-30">
-                                                <span class="pro-cat"><a href="#">Chair</a></span>
-                                                <h4 class="pro-title"><a href="shop-details.html">Bakari Product</a></h4>
-                                                <div class="price">
-                                                    <span>$95.00</span>
-                                                    <span class="old-price">$120.00</span>
-                                                </div>
-                                            </div>
+                        {% for product in products[:9] %}
+                            <div class="col-lg-4 col-md-6">
+                                <div class="product mb-40">
+                                    <div class="product__img">
+                                        <a href="shop-details.html"><img src="img/shop/img4.jpg" alt=""></a>
+                                        <div class="product-action text-center">
+                                            
+                                            <a href="shop-details.html">Add Cart</a>
+                                            
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="product mb-40">
-                                            <div class="product__img">
-                                                <a href="shop-details.html"><img src="img/shop/img5.jpg" alt=""></a>
-                                                <div class="product-action text-center">
-                                                   
-                                                    <a href="shop-details.html">Add Cart</a>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="product__content text-center pt-30">
-                                                <span class="pro-cat"><a href="#">Cloths</a></span>
-                                                <h4 class="pro-title"><a href="shop-details.html">Romada Product</a></h4>
-                                                <div class="price">
-                                                    <span>$95.00</span>
-                                                    <span class="old-price">$120.00</span>
-                                                </div>
-                                            </div>
+                                    <div class="product__content text-center pt-30">
+                                        <span class="pro-cat"><a href="#">{{ product.category }}</a></span>
+                                        <h4 class="pro-title"><a href="shop-details.html">{{ product.title }}</a></h4>
+                                        <div class="price">
+                                            <span>Kes {{ product.price }}</span>
+                                            <span class="old-price">Kes {{ product.price + product.price * 0.12 }}</span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="product mb-40">
-                                            <div class="product__img">
-                                                <a href="shop-details.html"><img src="img/shop/img6.jpg" alt=""></a>
-                                                <div class="product-action text-center">
-                                                   
-                                                    <a href="shop-details.html">Add Cart</a>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="product__content text-center pt-30">
-                                                <span class="pro-cat"><a href="#">Light</a></span>
-                                                <h4 class="pro-title"><a href="shop-details.html">Sikkar Product</a></h4>
-                                                <div class="price">
-                                                    <span>$95.00</span>
-                                                    <span class="old-price">$120.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="product mb-40">
-                                            <div class="product__img">
-                                                <a href="shop-details.html"><img src="img/shop/img7.jpg" alt=""></a>
-                                                <div class="product-action text-center">
-                                                   
-                                                    <a href="shop-details.html">Add Cart</a>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="product__content text-center pt-30">
-                                                <span class="pro-cat"><a href="#">Headphone</a></span>
-                                                <h4 class="pro-title"><a href="shop-details.html">Minners Product</a></h4>
-                                                <div class="price">
-                                                    <span>$95.00</span>
-                                                    <span class="old-price">$120.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="product mb-40">
-                                            <div class="product__img">
-                                                <a href="shop-details.html"><img src="img/shop/img8.jpg" alt=""></a>
-                                                <div class="product-action text-center">
-                                                   
-                                                    <a href="shop-details.html">Add Cart</a>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="product__content text-center pt-30">
-                                                <span class="pro-cat"><a href="#">table</a></span>
-                                                <h4 class="pro-title"><a href="shop-details.html">Dolando Product</a></h4>
-                                                <div class="price">
-                                                    <span>$95.00</span>
-                                                    <span class="old-price">$120.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="product mb-40">
-                                            <div class="product__img">
-                                                <a href="shop-details.html"><img src="img/shop/img9.jpg" alt=""></a>
-                                                <div class="product-action text-center">
-                                                   
-                                                    <a href="shop-details.html">Add Cart</a>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="product__content text-center pt-30">
-                                                <span class="pro-cat"><a href="#">Cloths</a></span>
-                                                <h4 class="pro-title"><a href="shop-details.html">Romada Product</a></h4>
-                                                <div class="price">
-                                                    <span>$95.00</span>
-                                                    <span class="old-price">$120.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-									<div class="col-lg-4 col-md-6">
-                                        <div class="product mb-40">
-                                            <div class="product__img">
-                                                <a href="shop-details.html"><img src="img/shop/img1.jpg" alt=""></a>
-                                                <div class="product-action text-center">
-                                                   
-                                                    <a href="shop-details.html">Add Cart</a>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="product__content text-center pt-30">
-                                                <span class="pro-cat"><a href="#">Cloths</a></span>
-                                                <h4 class="pro-title"><a href="shop-details.html">Medidove Product</a></h4>
-                                                <div class="price">
-                                                    <span>$95.00</span>
-                                                    <span class="old-price">$120.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="product mb-40">
-                                            <div class="product__img">
-                                                <a href="shop-details.html"><img src="img/shop/img2.jpg" alt=""></a>
-                                                <div class="product-action text-center">
-                                                   
-                                                    <a href="shop-details.html">Add Cart</a>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="product__content text-center pt-30">
-                                                <span class="pro-cat"><a href="#">Cloths</a></span>
-                                                <h4 class="pro-title"><a href="shop-details.html">Legend Product</a></h4>
-                                                <div class="price">
-                                                    <span>$95.00</span>
-                                                    <span class="old-price">$120.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="product mb-40">
-                                            <div class="product__img">
-                                                <a href="shop-details.html"><img src="img/shop/img3.jpg" alt=""></a>
-                                                <div class="product-action text-center">
-                                                   
-                                                    <a href="shop-details.html">Add Cart</a>
-                                                    
-                                                </div>
-                                            </div>
-                                            <div class="product__content text-center pt-30">
-                                                <span class="pro-cat"><a href="#">Table</a></span>
-                                                <h4 class="pro-title"><a href="shop-details.html">Akari Product</a></h4>
-                                                <div class="price">
-                                                    <span>$95.00</span>
-                                                    <span class="old-price">$120.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
                                 
                     </div>
 					<div class="row">
