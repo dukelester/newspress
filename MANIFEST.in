@@ -1,0 +1,4 @@
+include newspress/static
+include newspress/schema.sql
+include newspress/templates
+global-exclude *pyc
