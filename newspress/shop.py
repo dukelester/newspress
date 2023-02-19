@@ -123,4 +123,12 @@ def update_product_details_by_id(id):
 
 @blueprint.route('/<int:id>/delete', methods=['POST', 'GET'])
 def delete_product(id):
-    pass
+    ''' Delete a product from the database '''
+    get_product_by_id(id)
+    db = get_database()
+    db.execute(
+        ''' DELETE * FROM products WHERE id = ? ''',
+        (id, )
+    )
+    db.commit()
+    return redirect(url_for('shop.get_all_products'))
