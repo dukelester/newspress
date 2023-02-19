@@ -39,7 +39,7 @@ def life_style_category():
     ''' A category for the lifestyle '''
     db = get_database()
     posts = db.execute(
-        ''' SELECT * FROM blog WHERE category = "Life Style" ORDER BY created_at DESC '''
+        ''' SELECT * FROM blog WHERE category = "Lifestyle" ORDER BY created_at DESC '''
     ).fetchall()
     return render_template('life-style.html', posts=posts)
 
