@@ -2,6 +2,7 @@ from flask import (
     flash, Blueprint, request, redirect, render_template, g, url_for
 )
 from werkzeug.utils import secure_filename
+from werkzeug.exceptions import abort
 
 from newspress.database import get_database
 from newspress.auth import login_required
@@ -59,3 +60,18 @@ def create_new_product():
             return redirect(url_for('shop.get_all_products'))
 
     return render_template('new-product.html')
+
+def get_product_by_id(id, check_seller=True):
+    ''' Get the product and return it based on its Id and return an error if not found '''
+    db = get_database()
+    product = db.execute(
+        ''' SELECT * FROM products p JOIN user u ON p.seller_id = u.id
+        WHERE p.id = ?
+        ''',
+        (id, )
+    ).fetchone()
+    if product is None:
+        abort(4040, f'Sorry the product with the id {id} can not be found...!')
+    if check_seller and product['seller_id'] != g.user['id']:
+        abort(403)
+    return product
