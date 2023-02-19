@@ -1,5 +1,5 @@
 from flask import (
-    request, render_template, g, current_app, Blueprint, redirect, url_for, flash
+    request, render_template, Blueprint, redirect, url_for, flash
 )
 
 from newspress.database import get_database
