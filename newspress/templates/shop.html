@@ -32,16 +32,16 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="product mb-40">
                                     <div class="product__img">
-                                        <a href="shop-details.html"><img src="img/shop/img4.jpg" alt=""></a>
+                                        <a href="{{url_for('shop.get_product_details_by_id', id=product.id)}}"><img src="img/shop/img4.jpg" alt=""></a>
                                         <div class="product-action text-center">
                                             
-                                            <a href="shop-details.html">Add Cart</a>
+                                            <a href="{{url_for('shop.get_product_details_by_id', id=product.id)}}">Add Cart</a>
                                             
                                         </div>
                                     </div>
                                     <div class="product__content text-center pt-30">
                                         <span class="pro-cat"><a href="#">{{ product.category }}</a></span>
-                                        <h4 class="pro-title"><a href="shop-details.html">{{ product.title }}</a></h4>
+                                        <h4 class="pro-title"><a href="{{ url_for('shop.get_product_details_by_id', id=product.id)}}">{{ product.title }}</a></h4>
                                         <div class="price">
                                             <span>Kes {{ product.price }}</span>
                                             <span class="old-price">Kes {{ product.price + product.price * 0.12 }}</span>
