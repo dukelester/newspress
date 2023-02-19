@@ -94,7 +94,7 @@ def get_post_by_id(id, check_author=True):
     ).fetchone()
     if post is None:
         abort(404, f'The post with id {id} does not exist!')
-    if check_author and post['author_id'] != g.user['id']:
+    if check_author and  g.user is not None and post['author_id'] != g.user['id']:
         abort(403)
     return post
 
