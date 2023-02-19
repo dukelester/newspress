@@ -4,7 +4,7 @@ from flask import (
 
 from newspress.database import get_database
 
-blueprint = Blueprint('contact_us', __name__)
+blueprint = Blueprint('otherpages', __name__)
 
 @blueprint.route('/contact-us', methods=['GET', 'POST'])
 def contact_us():
