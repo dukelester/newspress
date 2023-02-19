@@ -26,7 +26,7 @@ def create_new_product():
         title = request.form['title']
         price = request.form['price']
         category = request.form['category']
-        description = request.form['description']
+        detailed_description = request.form['description']
         additional_info = request.form['additional_info']
         photo = secure_filename(request.files['photo'].filename)
 
@@ -39,7 +39,7 @@ def create_new_product():
             error = 'Invalid price'
         elif not category:
             error = 'Category is required'
-        elif not description:
+        elif not detailed_description:
             error = 'Product description is required'
         elif not additional_info:
             error = 'Product additional information is required'
@@ -49,11 +49,11 @@ def create_new_product():
             flash(error)
         else:
             db.execute(
-                ''' INSERT INTO products (title, price, description, category, additional_info,
-                                        photo, seller_id)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ''' INSERT INTO products (title, price, detailed_description,
+                category, additional_info, photo, seller_id)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 ''',
-                (title, price, description, category,additional_info, photo, g.user.id)
+                (title, price, detailed_description, category,additional_info, photo, g.user['id'])
             )
             db.commit()
             return redirect(url_for('shop.get_all_products'))

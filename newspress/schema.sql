@@ -36,12 +36,13 @@ CREATE TABLE contact (
 );
 
 CREATE TABLE products (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     price DECIMAL NOT NULL,
-    description TEXT NOT NULL,
+    detailed_description TEXT NOT NULL,
     category TEXT NOT NULL,
     additional_info TEXT NOT NULL,
-    photo BLOB
+    photo BLOB,
     seller_id INTEGER NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
