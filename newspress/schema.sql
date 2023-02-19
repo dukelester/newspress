@@ -41,7 +41,6 @@ CREATE TABLE products (
     description TEXT NOT NULL,
     category TEXT NOT NULL,
     additional_info TEXT NOT NULL,
-    review TEXT NOT NULL,
     photo BLOB
     seller_id INTEGER NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
