@@ -5,3 +5,10 @@ VALUES ('testuser', '0756780034', 'testuser@gmail.com', 'test user',
 ('otheruser', '073456789', 'otheruser@gmaul.com', 'other user',
 'pbkdf2:sha256:50000$kJPKsz6N$d2d4784f1b030a9761f5ccaeeaca413f27f2ecb76d6168407af962ddce849f79')
 
+INSERT INTO blog (author_id, title, body, category, photo, video_url, tags) VALUES
+(1, 'test blog', 'a test blog post for testing', 'testing', 'https://test.com/test',
+'test, testing, user test, test blog'),
+(1, 'test blog 2', 'a test blog 2 post for testing', 'testing', 'https://test.com/test',
+'test, testing, user test, test blog'),
+(2, 'test blog 3', 'a test blog post 3 for testing', 'testing', 'https://test.com/test',
+'test, testing, user test, test blog'),
