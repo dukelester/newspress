@@ -30,7 +30,7 @@ def create_app(test_config=None):
     # say hello
     @app.route('/hello')
     def hello():
-        return '<h3> Hello welcome to our blog and news </h3>'
+        return 'Hello welcome to our blog and news'
     database.init_app(app)
     app.register_blueprint(auth.blueprint)
     app.register_blueprint(blog.blueprint)
