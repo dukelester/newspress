@@ -27,3 +27,16 @@ def test_create_blog(client, auth, app):
         db = get_database()
         count = db.execute('SELECT COUNT(id) FROM blog').fetchone()[0]
         assert count == 4
+
+def test_update_blog_post(client, auth, app):
+    ''' Testing updating a blog post '''
+    auth.login()
+    assert client.get('/1/update').status_code == 200
+    client.post('/1/update', data={'title': 'testing updated'})
+
+    with app.app_context():
+        db = get_database()
+        post = db.execute(
+            'SELECT * FROM blog WHERE id = 1'
+        ).fetchone()
+        assert post['title'] == 'testing updated'
