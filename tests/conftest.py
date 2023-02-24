@@ -31,6 +31,7 @@ def runner(app):
 
 # Authentication
 class AuthActions(object):
+    ''' Auth actions '''
     def __init__(self, client):
         self.client = client
 
