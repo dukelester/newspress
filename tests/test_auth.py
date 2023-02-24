@@ -21,7 +21,7 @@ def test_register(client, app):
         ).fetchone() is not None
 
 
-@pytest.mark.parametrize(('username', 'phone', 'email', 'fullname', 'password'),
+@pytest.mark.parametrize(('username', 'phone', 'email', 'fullname', 'password', 'message'),
    (('', '073458922', 'duketest@gmail.com',  'duke tester',
     'duketest2030',  b'Username is required'),
     ('duketester', '073458922', 'duketest@gmail.com',
