@@ -51,3 +51,14 @@ def test_create_update_validate(client, auth, path):
     auth.login()
     response = client.post(path, data={'title': '', 'body': ''})
     assert b'Title is required' in response.data
+
+def test_delete(client, auth, app):
+    ''' delete a post '''
+    auth.login()
+    response = client.post('/1/delete')
+    assert response.headers['Location'] == '/'
+
+    with app.app_context():
+        db = get_database()
+        post = db.execute('SELECT * FROM blog WHERE id = 1').fetchone()
+        assert post is None
