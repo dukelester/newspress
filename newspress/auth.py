@@ -23,7 +23,7 @@ def user_registration():
         if not username:
             error = 'Username is required'
         elif not phone:
-            error = 'Phone numbe ris required'
+            error = 'Phone number is required'
         elif not fullname:
             error = 'Full Name is required'
         elif not email:
