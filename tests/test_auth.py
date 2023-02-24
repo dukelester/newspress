@@ -64,3 +64,11 @@ def test_login_validate_input(auth, username, password, message):
     ''' validate the details a user enters '''
     response = auth.log(username, password)
     assert message in response.data
+
+def test_user_logout(client, auth):
+    ''' User logout testing '''
+    auth.login()
+
+    with client:
+        client.logout()
+        assert 'user_id' not in session
