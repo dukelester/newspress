@@ -40,3 +40,14 @@ def test_update_blog_post(client, auth, app):
             'SELECT * FROM blog WHERE id = 1'
         ).fetchone()
         assert post['title'] == 'testing updated'
+
+@pytest.mark.parametrize('path', (
+    '/create',
+    '1/update',
+))
+
+def test_create_update_validate(client, auth, path):
+    ''' validate the create and update '''
+    auth.login()
+    response = client.post(path, data={'title': '', 'body': ''})
+    assert b'Title is required' in response.data
